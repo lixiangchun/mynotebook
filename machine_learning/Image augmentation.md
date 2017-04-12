@@ -47,8 +47,9 @@ library(OpenImageR)
 # `fn` contains path to every image file, one per line
 fls=read.table(fn,header=FALSE,stringsAsFactors=FALSE)$V1
 
-# r=mclapply(fls, function(fl) {
-	image_augmentation(fl)
+# use 60 cores to perform augmentation
+r=mclapply(fls, function(fl) {
+    image_augmentation(fl)
 }, mc.cores=60)
 ```
 
