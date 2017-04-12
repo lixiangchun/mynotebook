@@ -13,7 +13,7 @@ In deep learning, we often employ data augmentation techniques to increase sampl
 ```R
 image_augmentation <- function(filename) {
 
-	outfn.prefix=sub(".jpg$|.jpeg$|.png$|.tiff$","",fl, ignore.case = TRUE)
+    outfn.prefix=sub(".jpg$|.jpeg$|.png$|.tiff$","",fl, ignore.case = TRUE)
 
     image=readImage(fl)
 
@@ -23,17 +23,17 @@ image_augmentation <- function(filename) {
     vertical_flipped_image=flipImage(image, mode = "vertical")
     writeImage(vertical_flipped_image, paste(outfn.prefix, "_vertical_flipped.jpg",sep=""))
 
-	# randomly rotation
+    # randomly rotation
     rotated_image=rotateImage(image, angle = sample(1:359,1))
     writeImage(rotated_image, paste(outfn.prefix, "_rotated.jpg",sep=""))
 
-	# image cropping, the cropping dimension can be changed.
+    # image cropping, the cropping dimension can be changed.
     cropped_image=cropImage(image, dim(image)[1]*0.62, dim(image)[2]*0.62)
     writeImage(cropped_image, paste(outfn.prefix, "_cropped.jpg",sep=""))
 	
-	# ZCA whitening
-	zcawhitening_image=ZCAwhiten(image, k = 100, epsilon = 0.1)
-	writeImage(zcawhitening_image, paste(outfn.prefix, "_zcawhitening.jpg",sep=""))
+    # ZCA whitening
+    zcawhitening_image=ZCAwhiten(image, k = 100, epsilon = 0.1)
+    writeImage(zcawhitening_image, paste(outfn.prefix, "_zcawhitening.jpg",sep=""))
 
     print(filename)
 } 
