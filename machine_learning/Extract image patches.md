@@ -43,6 +43,14 @@ patch1 = image_patches[0,0,0,]
 
 # reshape
 patch1 = tf.reshape(patch1, [ksize_rows, ksize_cols, 3])
+
+# visualize image
+import matplotlib.pyplot as plt
+plt.imshow(sess.run(patch1))
+plt.show()
+
+# close session
+sess.close()
 ```
 
 The extracted image patches can be fed to fine-tuned model such as `inception_v3`. To feed image patches to fine-tuned `ResNet` model, change `ksize_rows` and `ksize_cols` to 224, which is the image size used by `ResNet`, 
