@@ -70,8 +70,12 @@ def plot_image_patches(x, ksize_rows=299, ksize_cols=299):
       ax.set_xticklabels([])
       ax.set_yticklabels([])
       #ax.set_aspect('equal')
-      plt.imshow(samples[0,i,j,].reshape(ksize_rows, ksize_cols, 3))
+      plt.imshow(x[0,i,j,].reshape(ksize_rows, ksize_cols, 3))
   return fig
+
+# if you want to place plot_image_patches in py file, you need to add the following code:
+# import matplotlib.pyplot as plt
+# import matplotlib.gridspec as gridspec
 
 x = sess.run(image_patches)
 fig = plot_image_patches(x)
