@@ -1,6 +1,6 @@
 # Extract image patches in `tensorflow`
 
-When applying deep learning to classify gigapixel pathology images, we often apply trained models (e.g. `Resnet` and `inception` etc.) to every image patches. The prediction for all patches of each image forms a heatmap.
+When applying deep learning to classify gigapixel pathology images, we often apply trained models (e.g. `Resnet` and `inception` etc.) to every image patches. The prediction for all patches of each image forms a heatmap, which can be derived to have a final prediction probability for the whole image.
 
 Here in this example, I try to briefly present an example to extract all image patches from a pathology image.
 
@@ -30,7 +30,7 @@ strides = [1, strides_rows, strides_cols, 1]
 rates = [1, 1, 1, 1] # sample pixel consecutively
 
 # padding algorithm to used
-padding='SAME'
+padding='VALID' # or 'SAME'
 
 image = tf.expand_dims(image, 0)
 image_patches = tf.extract_image_patches(image, ksizes, strides, rates, padding)
@@ -38,8 +38,12 @@ image_patches = tf.extract_image_patches(image, ksizes, strides, rates, padding)
 # print image shape of image patches
 print sess.run(image_patches).shape
 
+# image_patches is 4 dimension array, you can use tf.squeeze to squeeze it, e.g.
+# image_patches = tf.squeeze(image_patches)
+
 # retrieve the 1st patches
 patch1 = image_patches[0,0,0,]
+patch2 = image_patches[0,0,1,]
 
 # reshape
 patch1 = tf.reshape(patch1, [ksize_rows, ksize_cols, 3])
