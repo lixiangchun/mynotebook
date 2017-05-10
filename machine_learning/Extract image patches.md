@@ -74,7 +74,7 @@ def plot_image_patches(x, ksize_rows=299, ksize_cols=299):
   return fig
 
 x = sess.run(image_patches)
-fig = plot(x)
+fig = plot_image_patches(x)
 plt.savefig('image_patches.png', bbox_inches='tight',dpi=800) # use dpi to control image size
 plt.close(fig)
 
