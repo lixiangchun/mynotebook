@@ -50,37 +50,9 @@ patch1 = tf.reshape(patch1, [ksize_rows, ksize_cols, 3])
 
 # visualize image
 import matplotlib.pyplot as plt
-import matplotlib.gridspec as gridspec
 
 plt.imshow(sess.run(patch1))
 plt.show()
-
-# plot all image patches together
-def plot_image_patches(x, ksize_rows=299, ksize_cols=299):
-  nr = x.shape[1]
-  nc = x.shape[2]
-  fig = plt.figure(figsize=(nr, nc))
-  gs = gridspec.GridSpec(nr, nc)
-  gs.update(wspace=0.05, hspace=0.05)
-
-  for i in range(nr):
-    for j in range(nc):
-      ax = plt.subplot(gs[i*nr+j])
-      plt.axis('off')
-      ax.set_xticklabels([])
-      ax.set_yticklabels([])
-      #ax.set_aspect('equal')
-      plt.imshow(x[0,i,j,].reshape(ksize_rows, ksize_cols, 3))
-  return fig
-
-# if you want to place plot_image_patches in py file, you need to add the following code:
-# import matplotlib.pyplot as plt
-# import matplotlib.gridspec as gridspec
-
-x = sess.run(image_patches)
-fig = plot_image_patches(x)
-plt.savefig('image_patches.png', bbox_inches='tight',dpi=800) # use dpi to control image size
-plt.close(fig)
 
 # close session
 sess.close()
