@@ -41,19 +41,19 @@ def plot_image_patches2(image_patches, sess, ksize_rows=299, ksize_cols=299):
 
   for i in range(nr):
     for j in range(nc):
-      ax = plt.subplot(gs[i*nr+j])
+      ax = plt.subplot(gs[i*nc+j])
       plt.axis('off')
       ax.set_xticklabels([])
       ax.set_yticklabels([])
       ax.set_aspect('auto')
       patch = tf.reshape(image_patches[0,i,j,], [ksize_rows, ksize_cols, 3])
-      #patch = tf.image.random_brightness(patch, 0.6)
+      #patch = tf.image.random_brightness(patch, 0.3)
       #patch = tf.image.random_contrast(patch, 0.1, 0.9)
       #patch = tf.image.random_saturation(patch, 0.1, 0.9)
       #patch = tf.image.random_hue(patch, 0.4)
-      patch = tf.image.random_flip_up_down(patch, 0.4)
+      #patch = tf.image.random_flip_up_down(patch, 0.4)
       plt.imshow(sess.run(patch))
-      print('processed {},{} patch.'.format(i,j),file=sys.stderr)
+      print('processed {},{} patch, {}.'.format(i,j, i*nc+j),file=sys.stderr)
   return fig
 
 
