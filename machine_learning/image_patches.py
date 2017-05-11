@@ -16,7 +16,7 @@ def plot_image_patches(x, ksize_rows=299, ksize_cols=299):
 
   for i in range(nr):
     for j in range(nc):
-      ax = plt.subplot(gs[i*nr+j])
+      ax = plt.subplot(gs[i*nc+j])
       plt.axis('off')
       ax.set_xticklabels([])
       ax.set_yticklabels([])
