@@ -36,7 +36,7 @@ image = tf.expand_dims(image, 0)
 image_patches = tf.extract_image_patches(image, ksizes, strides, rates, padding)
 
 # print image shape of image patches
-print sess.run(image_patches).shape
+print sess.run(tf.shape(image_patches))
 
 # image_patches is 4 dimension array, you can use tf.squeeze to squeeze it, e.g.
 # image_patches = tf.squeeze(image_patches)
