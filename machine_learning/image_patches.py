@@ -4,8 +4,6 @@ import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 import sys
 
-def forceAspect(ax,aspect=1):
-  pass
 def plot_image_patches(x, ksize_rows=299, ksize_cols=299):
   nr = x.shape[1]
   nc = x.shape[2]
@@ -67,7 +65,7 @@ ksize_rows = 299
 ksize_cols = 299
 
 # strides_rows and strides_cols determine the distance between
-#+ the center of two consecutive patches.
+#+ the centers of two consecutive patches.
 strides_rows = 299 # 128
 strides_cols = 299 # 128
 
