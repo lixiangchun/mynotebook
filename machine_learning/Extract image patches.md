@@ -66,6 +66,10 @@ Image patches extracted:
 
 The extracted image patches can be fed to fine-tuned model such as `inception_v3`. To feed image patches to fine-tuned `ResNet` model, change `ksize_rows` and `ksize_cols` to 224, which is the image size used by `ResNet`, 
 
+Image segmentation to determine the fraction of cells in an image patch, for detail information see [image_segmentation.py](image_segmentation.py).
+
+![segmented image patches](image_patches_gray.png?raw=true)
+
 ## An awesome [example](http://stackoverflow.com/questions/40731433/understanding-tf-extract-image-patches-for-extracting-patches-from-an-image) from stack overflow to understand `tf.extract_image_patches`. 
 
 Here is how the method works:
