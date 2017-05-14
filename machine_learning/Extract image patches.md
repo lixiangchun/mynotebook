@@ -58,7 +58,7 @@ plt.show()
 sess.close()
 ```
 
-An example is provided in [image_patches.py](image_patches.py).
+An example is provided in [extract_image_patches.py](extract_image_patches.py).
 
 Image patches extracted:
 
