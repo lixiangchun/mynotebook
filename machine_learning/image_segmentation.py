@@ -61,7 +61,7 @@ for i in range(nr):
   	plt.imshow(x<cutoff, cmap='gray')
   	cancer_cell_area = (x < cutoff).sum() / float(ksize_rows * ksize_cols)
   	print('processed {},{} patch, {}, cancer cell area: {}.'.format(i,j, i*nc+j, cancer_cell_area),file=sys.stderr)
-plt.savefig('image_patches_gray.png', bbox_inches='tight',dpi=160)
+plt.savefig('image_patches_gray.png', bbox_inches='tight',dpi=120)
 
 #patch1 = tf.reshape(image_patches[0,0,0,], [ksize_rows, ksize_cols, 3])
 #patch1_gray = sess.run(tf.squeeze(tf.image.rgb_to_grayscale(patch1)))

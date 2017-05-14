@@ -94,7 +94,8 @@ image_patches = tf.extract_image_patches(image, ksizes, strides, rates, padding)
 # Method 2:
 fig = plot_image_patches2(image_patches, sess)
 
-plt.savefig('image_patches.png', bbox_inches='tight',dpi=300) # use dpi to control image size, e.g. 800
+#plt.savefig('image_patches.png', bbox_inches='tight',dpi=300) # use dpi to control image size, e.g. 800
+plt.savefig('image_patches.png', bbox_inches='tight',dpi=120) # use dpi to control image size, e.g. 800
 
 plt.close(fig)
 
