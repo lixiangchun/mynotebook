@@ -61,6 +61,9 @@ normal.plp.file = paste(normal.prefix, '.plp', sep="")
 tumor.vcf.file = paste(tumor.prefx, '.vcf', sep="")
 normal.vcf.file = paste(normal.prefix, '.vcf', sep="")
 
+# Note: to get patchwork to read compressed vcf and pileup files, replace patchwork internal perl scripts
+#+in patchwork subfolder `perl` with mpile2alleles.pl and pile2alleles.pl.
+
 patchwork.plot(
   tumor.bam.file,
   tumor.plp.file,
